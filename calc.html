@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Kalkulator Sederhana</title>
+</head>
+
+<script type="text/javascript">
+    // Fungsi untuk menampilkan input di layar kalkulator
+    function klik(val){
+        document.getElementById("tampil").value+=val;
+    }
+    // Fungsi untuk mengevaluasi digit dan mengembalikan hasil
+    function hasil(){
+        document.getElementById("tampil").value=eval(document.getElementById("tampil").value);
+    }
+    // Fungsi untuk membersihkan layar
+    function ac(){
+        document.getElementById("tampil").value="";
+    }
+    // Fungsi untuk menghapus digit sebelumnya
+    function backspace(){
+        var prevalue=document.getElementById("tampil").value;
+        document.getElementById("tampil").value=prevalue.substr(0,prevalue.length-1);
+    // Fungsi sinus
+    }
+    function fnsin(){
+        document.getElementById("tampil").value=Math.sin(document.getElementById("tampil").value);
+    }
+    // Fungsi cosinus
+    function fncos(){
+        document.getElementById("tampil").value=Math.cos(document.getElementById("tampil").value);
+    }
+    // Fungsi tangent
+    function fntan(){
+        document.getElementById("tampil").value=Math.tan(document.getElementById("tampil").value);
+    }
+    // Fungsi kuadrat
+    function square(){
+        document.getElementById("tampil").value=Math.pow(document.getElementById("tampil").value,2);
+    }
+    // Fungsi akar kuadrat
+    function sqrt(){
+        document.getElementById("tampil").value=Math.pow(document.getElementById("tampil").value,1/2);
+    }
+    // Fungsi persen
+    function percent(){
+        document.getElementById("tampil").value=(document.getElementById("tampil").value/100);
+    }
+    
+</script>
+
+<style>
+#tampil{
+    width:        427px; 
+    height:       75px; 
+    background:   rgb(226, 240, 188);
+    color:        #331100; 
+    text-align:   right; 
+    font-size:    40px; 
+    border-radius:8px;
+    margin:       10px;
+    border-color: black;
+    } 
+    
+.main{
+    position: absolute;
+    background: linear-gradient(to right, #657481, #09032c);
+    top: 50%;
+    left: 50%;
+    border-radius: 12px;
+    transform: translateX(-50%) translateY(-50%);
+    }
+  
+div  input:hover{ 
+     background: rgb(135, 175, 248);
+    }
+
+div  input:active{ 
+      background:rgb(63, 32, 54);
+    }
+   
+div input {
+     width:         83px;
+     height:        70px; 
+    font-size:     40px; 
+    border-radius: 30px;
+    margin:2px;
+    background:    #222738fa;
+    color:         white;
+    border-color:grey;
+    }
+ 
+#equal{
+    width:         172px; 
+    height:        70px;
+    font-size:     50px; 
+    border-radius: 8px;
+    margin-bottom: 20px;
+    }
+</style>
+
+<body style="background: linear-gradient(to left, rgb(190, 204, 187),black)">
+        <div class="main">
+            <div id="calc">
+        <input type="text" id="tampil" placeholder="0"><br>
+        <div class="row">
+                <div class="col">
+                <input type="button" name="btnClr" value="AC" id="two" onclick="ac()">
+                <input type="button" name="btnDel" value="<-" onclick="backspace()">               
+                <input type="button" name="btnSqr" value="X&#178" onclick="square()">
+                <input type="button" name="btnSqrt" value=&#8730 onclick="sqrt()">
+                <input type="button" name="btnMul" value="%" onclick="percent()">
+                </div> 
+            </div>
+        <div class="row">
+            <div class="col">
+                <input type="button" name="btn9" value="7" onclick="klik(value)">
+                <input type="button" name="btn8" value="8" onclick="klik(value)">
+                <input type="button" name="btn7" value="9" onclick="klik(value)">
+                <input type="button" name="btnAdd" value="+" onclick="klik(value)">
+                <input type="button" name="btnSin" value="Sin" onclick="fnsin()">               
+            </div> 
+        </div>
+        <div class="row">
+                <div class="col">
+                    <input type="button" name="btn6" value="4" onclick="klik(value)">
+                    <input type="button" name="btn5" value="5" onclick="klik(value)">
+                    <input type="button" name="btn4" value="6" onclick="klik(value)">
+                    <input type="button" name="btnSub" value="-" onclick="klik(value)">
+                    <input type="button" name="btnCos" value="Cos" onclick="fncos()">                    
+                </div>
+        </div>
+        <div class="row">
+                <div class="col">
+                    <input type="button" name="btn3" value="1" onclick="klik(value)">
+                    <input type="button" name="btn2" value="2" onclick="klik(value)">
+                    <input type="button" name="btn1" value="3" onclick="klik(value)">
+                    <input type="button" name="btnMul" value="*" onclick="klik(value)">
+                    <input type="button" name="btnTan" value="Tan" onclick="fntan()">
+                </div>
+        </div>
+        <div class="row">
+                <div class="col">
+
+                    <input type="button" name="btn0" value="0" onclick="klik(value)">
+                    <input type="button" name="btnEql" value="=" id="equal" onclick="hasil()">
+                    <input type="button" name="btnDiv" value="/" onclick="klik(value)">
+                    <input type="button" name="btnPnt" value="." onclick="klik(value)">                                
+                </div>
+        </div>
+    </div>
+    </div>   
+</body>
+</html>
